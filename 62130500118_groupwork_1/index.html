@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vue Js - HelloWorld App</title>
+
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+<body class="text-gray-600 font-body leading-6 antialiased">
+<div>
+  <div class="container mx-auto w-full h-24"><!-- Start Nav -->
+    <div class="flex mx-42 h-24 flex-wrap content-center box-border">
+      <div class="cursor-pointer flex flex-wrap items-center mr-32"><!-- Logo-->
+        <svg height="30" viewBox="0 0 180 30" width="180">
+          <g fill="none" fill-rule="evenodd">
+            <path d="M57.6 17.239187c0 2.546698-2.085517 4.407747-4.965517 4.407747-2.88 0-4.965517-1.86105-4.965517-4.407747V7.835994H45.68276v9.501143c0 3.330298 2.88 6.170846 6.951723 6.170846 4.071724 0 6.951724-2.938498 6.951724-6.170846V7.835994H57.6v9.403193zm16.286897-9.403193h-5.36276v15.67199h5.36276c4.468965 0 7.547586-3.03645 7.547586-7.835996 0-4.701596-3.07862-7.835994-7.547586-7.835994zm-.19862 13.71299h-3.177932V9.794994h3.17793c3.376553 0 5.76 2.252847 5.76 5.876994 0 3.917998-2.482757 5.779046-5.76 5.876996zm43.49793.29385c-3.575172 0-5.95862-2.644648-5.95862-6.170846 0-3.526197 2.482758-6.072895 5.95862-6.072895 2.78069 0 4.468966 1.5672 4.468966 1.5672l.794483-1.3713s-1.787587-1.86105-5.46207-1.86105c-4.766896 0-7.746206 3.526198-7.746206 7.738045 0 4.309797 3.07862 7.933945 7.944827 7.933945 3.773793 0 5.66069-2.5467 5.66069-2.5467l-1.092414-1.175398c-.09931-.09795-1.588965 1.959-4.568276 1.959zm14.896553-14.00684h1.986206v15.67199h-1.986207zm10.924137 1.959h4.965517v13.71299h1.986207V9.794994h4.96552v-1.959H143.0069m30.587583 0l-4.766896 7.150344-4.866207-7.150347h-2.085518l5.95862 8.717546v6.954445h1.986208v-6.954444l5.85931-8.71754m-81.434482 0l-6.157242 15.67199h1.986207l1.688276-4.5057 6.45517-1.3713 2.18483 5.876998h1.986203l-6.05793-15.67199h-2.085518zm-1.886897 9.305242l2.97931-7.248294h.099315L97.92 16.063788l-5.56138 1.07745z" fill="#2E3D49"></path><path d="M29 .5l1 .5v13c0 5.551887-2.8897 8.695692-5.995216 10.099885L24.0094 24.1l-7.620963 4.388562c-.05877.03456-.11776.068527-.176957.101902l-.08642.049764.001806-.00254C14.48289 29.545895 12.684682 30 11 30 6 30 0 26 0 18V6l2 1v11c0 8 6 10 9 10 1.858706 0 4.86901-.76773 6.89043-3.254517C14.181726 23.872636 10 20.678703 10 14V2.2L2 7 0 6l10-6 1 .5 1 .5v13c0 6.939958 4.515283 8.612086 7.017542 8.933368C19.625786 21.62159 20 19.997902 20 18V5l2 1v12c0 1.852645-.321777 3.49077-.878395 4.91438C23.648223 22.549217 28 20.813144 28 14V2.25L22 6l-2-1 8-5 1 .5z" fill="#02B3E4">
+            </path>
+          </g>
+        </svg>
+      </div><!-- Logo-->
+      <div class="flex h-20 top-12 items-center"><!-- navigation-->
+        <div class="py-6 h-20">
+          <button class="text-base text-center align-middle h-9 flex flex-wrap mr-5 px-2 border-2 border-white items-center space-x-2">
+            <span>Programs </span>
+            <svg class="pointer-down" height="7" viewBox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg"><path d="m105 46 5 5 5-5" fill="none" stroke="#96a0aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(-104 -45)"></path>
+              <path d="m105 46 5 5 5-5" fill="none" stroke="#96a0aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(-104 -45)"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="py-6 h-20">
+          <button class="text-base text-center align-middle h-9 flex flex-wrap mr-5 px-2 border-2 border-white items-center space-x-2">
+            <span>Careers</span>
+            <svg class="pointer-down" height="7" viewBox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg"><path d="m105 46 5 5 5-5" fill="none" stroke="#96a0aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(-104 -45)"></path>
+              <path d="m105 46 5 5 5-5" fill="none" stroke="#96a0aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(-104 -45)"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="py-6 h-20">
+          <button class="text-base text-center align-middle h-9 flex flex-wrap mr-5 px-2 border-2 border-white items-center space-x-2">
+            <span>For Enterprise</span>
+            <svg class="pointer-down" height="7" viewBox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg"><path d="m105 46 5 5 5-5" fill="none" stroke="#96a0aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(-104 -45)"></path>
+              <path d="m105 46 5 5 5-5" fill="none" stroke="#96a0aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(-104 -45)"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="py-6 h-20">
+          <button class="text-base text-center align-middle h-9 flex flex-wrap mr-5 px-2 border-2 border-white items-center space-x-2">
+            <span>For Government</span>
+          </button>
+        </div>
+        <div class="py-6 h-20 text-base text-center align-middle flex flex-wrap mr-5 px-2 border-2 border-white items-center space-x-2">
+          |
+        </div>
+        <div class="py-6 h-20 text-base text-center align-middle flex flex-wrap mr-5 px-2 border-2 border-white items-center space-x-2">
+          <a title="Sign In" href="https://auth.udacity.com/sign-in?next=https://classroom.udacity.com">Sign In</a>
+        </div>
+        <div class="bg-primary flex flex-wrap items-center text-xs text-white font-semibold tracking-widest leading-7 uppercase align-middle h-8 w-auto px-2.5 border-2 mx-5 rounded shadow-lg">
+            <a title="Get Started" href="https://auth.udacity.com/sign-up?next=https://classroom.udacity.com">Get Started</a>
+        </div>
+      </div><!-- navigation-->
+    </div>
+  </div><!-- End Nav -->
+  <!-- content1 -->
+  <div class="mb-12 block relative">
+    <div class="mx-42 relative flex flex-wrap">
+        <div class="block">
+          <div class="flex flex-row">
+            <div class="pt-16 pr-8 pb-4 block mr-595px">
+              <h1 class="text-5xl mb-8 font-bold text-gray-800 antialiased block" style="width: 550px;">The latest digital skills, within reach.</h1>
+              <h2 class="text-lg leading-8 text-gray-600 font-normal mr-9 block" style="width: 500px;">Discover the fastest, most effective way to gain job-ready expertise for the careers of the future.</h2>
+            </div>
+          </div>
+          <ul class="flex my-8 mr-8 space-x-4">
+            <li class="px-6 py-8 border-t-4 rounded-lg border-G1 shadow-xl">
+              <article class="block text-center">
+                <a href="" class="text-xs text-white font-bold block uppercase bg-primary h-12 w-48 rounded-lg border-2 px-2 mb-4 py-3.5 shadow-lg">For Individuals</a>
+                <h3 class="text-sm leading-6 whitespace-nowrap antialiased text-gray-800 inherit block">Transform your career.</h3>
+              </article>
+            </li>
+            <li class="px-6 py-8 border-t-4 rounded-lg border-P2 shadow-xl">
+              <article class="text-center">
+                <a href="" class="text-xs text-white font-bold block uppercase bg-primary h-12 w-48 rounded-lg border-2 px-2 mb-4 py-3.5 shadow-lg">For Enterprise</a>
+                <h3 class="text-sm leading-6 whitespace-nowrap antialiased text-gray-800 inherit block">Transform your business.</h3>
+              </article>
+            </li>
+            <li class="px-6 py-8 border-t-4 rounded-lg border-Y3 shadow-xl">
+              <article class="text-center">
+                <a href="" class="text-xs text-white font-bold block uppercase bg-primary h-12 w-48 rounded-lg border-2 px-2 mb-4 py-3.5 shadow-lg">For Government</a>
+                <h3 class="text-sm leading-6 whitespace-nowrap antialiased text-gray-800 inherit block">Transform your workforce.</h3>
+              </article>
+            </li>
+          </ul>
+        </div>
+        <div class="absolute bg-contain -right-40 top-0 ">
+          <img src="images/BG.png" width="430px">
+        </div>
+     </div>
+  </div>
+  <!-- content2 -->
+  <div class="block">
+      <div class="block clear-both text-center py-12 mx-32">
+        <h2 class="mx-60 mb-8 text-3xl font-semibold text-center leading-7 antialiased">Explore our schools to find your perfect program</h2>
+        <ul class="mx-4 flex justify-around relative mb-4">
+          <li class="overflow-hidden max-w-full">
+            <h5 class="border-b-2 border-B4 mr-3 block font-semibold text-center text-base tracking-wider leading-5 uppercase relative cursor-pointer antialiased">Data Science</h5>
+          </li>
+          <li class="overflow-hidden max-w-full">
+            <h5 class="mr-3 block font-normal text-center text-base tracking-wider leading-5 uppercase relative cursor-pointer antialiased">Programming</h5>
+          </li>
+          <li class="overflow-hidden max-w-full">
+            <h5 class="mr-3 block font-normal text-center text-base tracking-wider leading-5 uppercase relative cursor-pointer antialiased">ARTIFICIAL INTELLIGENCE</h5>
+          </li>
+          <li class="overflow-hidden max-w-full">
+            <h5 class="mr-3 block font-normal text-center text-base tracking-wider leading-5 uppercase relative cursor-pointer antialiased">Business</h5>
+          </li>
+          <li class="overflow-hidden max-w-full">
+            <h5 class="mr-3 block font-normal text-center text-base tracking-wider leading-5 uppercase relative cursor-pointer antialiased">Autonomous Systems</h5>
+          </li>
+          <li class="overflow-hidden max-w-full">
+            <h5 class="mr-3 block font-normal text-center text-base tracking-wider leading-5 uppercase relative cursor-pointer antialiased">Cloud Computing</h5>
+          </li>
+        </ul>
+        <ul class="flex justify-start relative mb-5">
+          <li>
+            <div class="static max-w-full block" >  
+              <div class="flex flex-nowrap flex-row overflow-hidden p-2 text-base antialiased leading-6 max-w-7xl">
+                <a href="" class="text-left relative shadow-xl w-60 h-64 rounded-md cursor-pointer mr-2.5 mb-3">
+                  <!-- Upper card -->
+                  <div class="flex flex-col p-3 rounded-t bg-center bg-cover text-left cursor-pointer h-1/2 w-full" style="background-image: url(&quot;//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/4zEEr4FUkSQ7U1UgVPPCHB/d4c2b2a0df97251f8c64a4e1b248f313/data_engineer_catalog_image.jpg&quot;);">
+                    <div class="block bg-red-800 self-start rounded uppercase text-sm leading-6 font-semibold text-left px-2 text-white">new</div>
+                  </div> 
+                  <div class="block h-14 p-3 text-base leading-5 font-semibold z-10 antialiased">Data Engineer</div>
+                  <!-- Lower card -->
+                  <div class="block text-left px-3 pb-3 cursor-pointer leading-6 antialiased">
+                    <div>
+                      <span class="flex my-auto text-left items-center float-right">
+                        <div class="flex items-end relative h-2 w-2 text-left">
+                          <div class="h-2/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-4/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-full bg-gray-300 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                        </div>
+                        <span class="flex overflow-hidden justify-between leading-3 text-gray-700 text-xs text-left my-auto ml-1">Intermediate</span>
+                      </span>
+                      <span class="flex float-left">
+                        <img src="images/Star.png" class="h-star">
+                        <span class="text-xs leading-4 text-gray-600 text-left">4.6</span>
+                        <span class="text-xs leading-4 text-gray-600 text-left">(990)</span>
+                      </span>
+                    </div>
+                    <div class="font-semibold text-xs text-gray-600 tracking-widest	leading-5 antialiased cursor-pointer clear-both">ESTIMATED TIME</div>
+                    <div class="block text-gray-500 text-xs leading-5 text-left cursor-pointer antialiased">5 months at 5-10 hrs/week</div>
+                  </div>
+                </a>
+                <a href="" class="text-left relative shadow-xl w-60 h-64 rounded-md cursor-pointer mr-2.5 mb-3">
+                  <!-- Upper card -->
+                  <div class="flex flex-col p-3 rounded-t bg-center bg-cover text-left cursor-pointer h-1/2 w-full" style="background-image: url(&quot;//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/3rwaAEsoRTEH5tG7hkbmiP/7104590268166374b6165b47d01bb454/data_scientist_catalog_image.jpg&quot;);">
+                    <div class="block bg-B1 self-start rounded uppercase text-sm leading-6 font-semibold text-left px-2 text-white">popular</div>
+                  </div> 
+                  <div class="block h-14 p-3 text-base leading-5 font-semibold z-10 antialiased">Data Scientist</div>
+                  <!-- Lower card -->
+                  <div class="block text-left px-3 pb-3 cursor-pointer leading-6 antialiased">
+                    <div>
+                      <span class="flex my-auto text-left items-center float-right">
+                        <div class="flex items-end relative h-2 w-2 text-left">
+                          <div class="h-2/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-4/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-full bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                        </div>
+                        <span class="flex overflow-hidden justify-between leading-3 text-gray-700 text-xs text-left my-auto ml-1">Advanced</span>
+                      </span>
+                      <span class="flex float-left">
+                        <img src="images/Star.png" class="h-star">
+                        <span class="text-xs leading-4 text-gray-600 text-left">4.7</span>
+                        <span class="text-xs leading-4 text-gray-600 text-left">(785)</span>
+                      </span>
+                    </div>
+                    <div class="font-semibold text-xs text-gray-600 tracking-widest	leading-5 antialiased cursor-pointer clear-both">ESTIMATED TIME</div>
+                    <div class="block text-gray-500 text-xs leading-5 text-left cursor-pointer antialiased">4 months at 5-10 hrs/week</div>
+                  </div>
+                </a>
+                <a href="" class="text-left relative shadow-xl w-60 h-64 rounded-md cursor-pointer mr-2.5 mb-3">
+                  <!-- Upper card -->
+                  <div class="flex flex-col p-3 rounded-t bg-center bg-cover text-left cursor-pointer h-1/2 w-full" style="background-image: url(&quot;//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/4x4nYFuwsS0CVlfp5YQjZQ/13a0153215af9d8be77a0746bf675b25/data_analyst_catalog_image.jpg&quot;);">
+                    <div class="block bg-B1 self-start rounded uppercase text-sm leading-6 font-semibold text-left px-2 text-white">popular</div>
+                  </div> 
+                  <div class="block h-14 p-3 text-base leading-5 font-semibold z-10 antialiased">Data Analyst</div>
+                  <!-- Lower card -->
+                  <div class="block text-left px-3 pb-3 cursor-pointer leading-6 antialiased">
+                    <div>
+                      <span class="flex my-auto text-left items-center float-right">
+                        <div class="flex items-end relative h-2 w-2 text-left">
+                          <div class="h-2/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-4/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-full bg-gray-300 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                        </div>
+                        <span class="flex overflow-hidden justify-between leading-3 text-gray-700 text-xs text-left my-auto ml-1">Intermediate</span>
+                      </span>
+                      <span class="flex float-left">
+                        <img src="images/Star.png" class="h-star">
+                        <span class="text-xs leading-4 text-gray-600 text-left">4.6</span>
+                        <span class="text-xs leading-4 text-gray-600 text-left">(2886)</span>
+                      </span>
+                    </div>
+                    <div class="font-semibold text-xs text-gray-600 tracking-widest	leading-5 antialiased cursor-pointer clear-both">ESTIMATED TIME</div>
+                    <div class="block text-gray-500 text-xs leading-5 text-left cursor-pointer antialiased">4 months at 5-10 hrs/week</div>
+                  </div>
+                </a>
+                <a href="" class="text-left relative shadow-xl w-60 h-64 rounded-md cursor-pointer mr-2.5 mb-3">
+                  <!-- Upper card -->
+                  <div class="flex flex-col p-3 rounded-t bg-center bg-cover text-left cursor-pointer h-1/2 w-full" style="background-image: url(&quot;//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/6mEuxTnE9mxQOrobcU18Re/926be9782dd001e321d6c03356d1e49c/business_analytics_catalog_image.jpg&quot;);">
+                    <div class="block bg-B1 self-start rounded uppercase text-sm leading-6 font-semibold text-left px-2 text-white">popular</div>
+                  </div> 
+                  <div class="block h-14 p-3 text-base leading-5 font-semibold z-10 antialiased">Business Analytics</div>
+                  <!-- Lower card -->
+                  <div class="block text-left px-3 pb-3 cursor-pointer leading-6 antialiased">
+                    <div>
+                      <span class="flex my-auto text-left items-center float-right">
+                        <div class="flex items-end relative h-2 w-2 text-left">
+                          <div class="h-2/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-4/6 bg-gray-300 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-full bg-gray-300 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                        </div>
+                        <span class="flex overflow-hidden justify-between leading-3 text-gray-700 text-xs text-left my-auto ml-1">Beginner</span>
+                      </span>
+                      <span class="flex float-left">
+                        <img src="images/Star.png" class="h-star">
+                        <span class="text-xs leading-4 text-gray-600 text-left">4.7</span>
+                        <span class="text-xs leading-4 text-gray-600 text-left">(1214)</span>
+                      </span>
+                    </div>
+                    <div class="font-semibold text-xs text-gray-600 tracking-widest	leading-5 antialiased cursor-pointer clear-both">ESTIMATED TIME</div>
+                    <div class="block text-gray-500 text-xs leading-5 text-left cursor-pointer antialiased">3 months at 5-10 hrs/week</div>
+                  </div>
+                </a>
+                <a href="" class="text-left relative shadow-xl w-60 h-64 rounded-md cursor-pointer mr-2.5 mb-3">
+                  <!-- Upper card -->
+                  <div class="flex flex-col p-3 rounded-t bg-center bg-cover text-left cursor-pointer h-1/2 w-full" style="background-image: url(&quot;////www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/5Fo0evGwfNzFwCweh3gVGU/293e87cd9268d48dbdae7b632bd54b1f/Programming_for_Data_Science_with_Python_-_catalog_image.jpg&quot;);">
+                    <div class="block bg-green-600 self-start rounded uppercase text-sm leading-6 font-semibold text-left px-2 text-white">top rated</div>
+                  </div> 
+                  <div class="block h-14 p-3 text-base leading-5 font-semibold z-10 antialiased">Programming for Data Science with Python</div>
+                  <!-- Lower card -->
+                  <div class="block text-left px-3 pb-3 cursor-pointer leading-6 antialiased">
+                    <div>
+                      <span class="flex my-auto text-left items-center float-right">
+                        <div class="flex items-end relative h-2 w-2 text-left">
+                          <div class="h-2/6 bg-B1 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-4/6 bg-gray-300 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                          <div class="h-full bg-gray-300 border-B2 w-2/6 inline-block relative" style="margin-left: 3%;"></div>
+                        </div>
+                        <span class="flex overflow-hidden justify-between leading-3 text-gray-700 text-xs text-left my-auto ml-1">Beginner</span>
+                      </span>
+                      <span class="flex float-left">
+                        <img src="images/Star.png" class="h-star">
+                        <span class="text-xs leading-4 text-gray-600 text-left">4.8</span>
+                        <span class="text-xs leading-4 text-gray-600 text-left">(815)</span>
+                      </span>
+                    </div>
+                    <div class="font-semibold text-xs text-gray-600 tracking-widest	leading-5 antialiased cursor-pointer clear-both">ESTIMATED TIME</div>
+                    <div class="block text-gray-500 text-xs leading-5 text-left cursor-pointer antialiased">3 months at 5-10 hrs/week</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="block h-full w-14 absolute top-0 z-50 -right-16">
+                <img src="images/Next.svg" class="top-1/2">  
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+</div>
+
+
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+</html>
