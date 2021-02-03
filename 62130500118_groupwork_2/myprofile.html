@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!-- RESOURCES -->
+    <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js'></script>
+  </head>
+
+  <body>
+    <div class="py-20 h-screen bg-gray-300 px-2" id="app">
+      <div class="max-w-md mx-auto bg-white bg-gradient-to-b from-purple-400 via-pink-500 to-red-500 rounded-lg overflow-hidden md:max-w-sm h-64">
+          <div class="flex justify-center items-center w-full h-full">
+              <div class="flex flex-col items-center bg-cover"> <img v-bind:src="image" width="80" class="rounded-full ring-2 ring-green-300 ring-offset-2 ring-offset-yellow-300 shadow-2xl">
+                  <h1 class="text-xl text-white font-medium mt-3">{{firstname}} {{lastname}}</h1> <span class="text-sm text-white">Your BMI is {{BMI}}</span>
+              </div>
+          </div>
+      </div>
+   </div>
+    <!-- my main.js -->
+    <script src="profile.js"></script>
+  </body>
+</html>
