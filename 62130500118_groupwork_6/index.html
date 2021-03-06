@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+  <!-- RESOURCES -->
+  <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js'></script>
+</head>
+
+<body>
+  <div class="h-screen px-2" id="app">
+    <div v-show="isSuccess"
+      class="max-w-md mx-auto bg-white bg-gradient-to-b from-purple-400 via-pink-500 to-red-500 rounded-lg overflow-hidden md:max-w-sm h-64 mt-20">
+      <div class="flex justify-center items-center w-full h-full">
+        <div class="flex flex-col items-center bg-cover">
+          <img v-bind:src="image" width="80"
+            class="rounded-full ring-2 ring-green-300 ring-offset-2 ring-offset-yellow-300 shadow-2xl">
+          <h1 class="text-xl text-white font-medium mt-3">{{firstname}} {{lastname}}</h1>
+          <div class="flex flex-col text-3xl">
+            <span class="text-sm text-white">Age: {{age}}</span>
+            <span class="text-sm text-white">Gender: {{gender}}</span>
+            <span class="text-sm text-white">BMI: {{BMI}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form @submit.prevent="validate" v-show="!isSuccess">
+      <div class="container w-2/5 p-8 mx-auto mt-10 border rounded-lg">
+        <div class="max-w-md mx-auto flex flex-col items-center">
+          <img v-bind:src="image" width="100" class="rounded-full shadow-2xl">
+          <h1 class="text-2xl pt-4 pb-4">Update Profile</h1>
+        </div>
+
+        <p v-if="errors" class="text-red-500 text-center">
+          <b>Please correct the following error(s):</b>
+          <ul class="text-center">
+            <li v-for="error in errors" class="text-red-500">{{ error }}</li>
+          </ul>
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-col">
+            <label for="firstname" class="text-sm leading-7 text-gray-600">First Name</label>
+            <input type="text" id="firstname" v-model.trim="firstname" name="firstname"
+              class="bg-gray-100 rounded px-4 py-2 mb-4">
+          </div>
+          <div class="flex flex-col">
+            <label for="lastname" class="text-sm leading-7 text-gray-600">Last Name</label>
+            <input type="text" id="lastname" v-model.trim="lastname" name="lastname"
+              class="bg-gray-100 rounded px-4 py-2 mb-4">
+          </div>
+          <div class="flex flex-col">
+            <label for="age" class="text-sm leading-7 text-gray-600">Age</label>
+            <input type="text" id="age" v-model.number="age" name="age" class="bg-gray-100 rounded px-4 py-2 mb-4">
+          </div>
+          <div class="flex flex-col">
+            <label class="text-sm leading-7 text-gray-600">Gender</label>
+            <div class="flex flex-row pt-2 space-x-2">
+              <input type="radio" id="Male" v-model="gender" name="gender" value="Male"
+                class="bg-gray-100 rounded px-4 py-2 mb-4">
+              <label for="Male">Male</label>
+              <input type="radio" id="Female" v-model="gender" name="gender" value="F"
+                class="bg-gray-100 rounded px-4 py-2 mb-4">
+              <label for="Female">Female</label>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <label for="height" class="text-sm leading-7 text-gray-600">Height (cm)</label>
+            <input type="number" id="height" v-model.number="height" name="height"
+              class="bg-gray-100 rounded px-4 py-2 mb-4">
+          </div>
+
+          <div class="flex flex-col">
+            <label for="weight" class="text-sm leading-7 text-gray-600">Weight (kg)</label>
+            <input type="number" id="weight" v-model.number="weight" name="weight"
+              class="bg-gray-100 rounded px-4 py-2 mb-4">
+          </div>
+          <div class="grid col-span-2 items-center">
+            <input type="submit" value="Submit"
+              class="px-8 py-2 text-black font-medium rounded-3xl hover:bg-black hover:text-white focus:shadow-outline focus:outline-none focus:ring-2 ring-black ring-offset-2 max-w-md mx-auto">
+          </div>
+    </form>
+  </div>
+
+  <!-- my main.js -->
+  <script src="profile.js"></script>
+
+</body>
+
+</html>
